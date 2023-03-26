@@ -4,7 +4,6 @@ import openai
 
 load_dotenv()  # Load all the ENV variables into your os enviroment.
 openai.api_key = os.getenv("OPENAI_API_KEY")  # Get your API key from env variable
-openai.api_key = "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"
 
 reply_count = 0
 msgs = []
@@ -34,7 +33,7 @@ while True:
         messages=msgs
     )
     reply = response["choices"][0]["message"]["content"]
-    with open(f"{session_name}/response-{reply_count}.md", "x") as file:
+    with open(f"conversations/{session_name}/response-{reply_count}.md", "x") as file:
         file.write("Question:\n")
         file.write(msg)
         file.write("\n\nAnswer:\n")
